@@ -9,6 +9,7 @@
     "start": "sagui develop --port 3000",
     "test": "jest"
   },
+  "files": ["dist"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/batata-frita/element-rect-observer.git"
