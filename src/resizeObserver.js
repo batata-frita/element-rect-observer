@@ -1,7 +1,14 @@
 export default (domElement, callback) => {
-  let recordedSize = {}
+  if (
+    typeof global.MutationObserver !== 'function' &&
+    typeof global.ResizeObserver !== 'function'
+  ) {
+    return () => {}
+  }
 
   if (typeof global.ResizeObserver !== 'function') {
+    let recordedSize = {}
+
     const onChange = () => {
       const boundingClientRect = domElement.getBoundingClientRect()
 
@@ -20,7 +27,7 @@ export default (domElement, callback) => {
       }
     }
 
-    const observer = new MutationObserver(onChange)
+    const observer = new global.MutationObserver(onChange)
 
     window.addEventListener('resize', onChange)
 
@@ -28,7 +35,7 @@ export default (domElement, callback) => {
       attributes: true,
       childList: true,
       characterData: true,
-      subtree: true
+      subtree: true,
     })
 
     callback(domElement.getBoundingClientRect())
@@ -39,7 +46,7 @@ export default (domElement, callback) => {
     }
   }
 
-  const observer = new ResizeObserver(() => callback(domElement.getBoundingClientRect()))
+  const observer = new global.ResizeObserver(() => callback(domElement.getBoundingClientRect()))
 
   observer.observe(domElement)
 
