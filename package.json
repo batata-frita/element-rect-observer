@@ -1,0 +1,33 @@
+{
+  "name": "resize-observer-polyfill-lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sagui build",
+    "dist": "sagui dist",
+    "format": "sagui format",
+    "start": "sagui develop --port 3000",
+    "test": "sagui test",
+    "test:lint": "sagui test:lint",
+    "test:typecheck": "sagui test:typecheck",
+    "test:unit": "sagui test:unit --coverage",
+    "test:unit:watch": "sagui test:unit --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batata-frita/resize-observer-polyfill-lite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/batata-frita/resize-observer-polyfill-lite/issues"
+  },
+  "homepage": "https://github.com/batata-frita/resize-observer-polyfill-lite#readme",
+  "devDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sagui": "^11.4.3"
+  }
+}
