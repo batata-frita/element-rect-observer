@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- node
+before_deploy:
+- npm run dist
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: fernando.via@gmail.com
+  api_key:
+    secure: luSEMT0pYVXrFichiuW8vyqkSj9a6XPRZk/so8G0oL2Fm6jRCKOejPPuhBvuOOohu1W6yKeHrfCNCMS9pd16IE8lUOBRhfnisqoL0b2KnDIW1LtjMkbFwLdMvrXnZ+XQg0xIAkuaVntrfcHY9vFzkjAQFyjFPFMFSdrUkkWTcEAKCB50vALCfgH8MskXl/d+I1LP6fD4Na1KHGL1XWaZqGM1KIiAyApx55QO0WhtgCQGQwC6onKzYdKaBn3vVirj1gQ3oxmqqvgGZWZWMTNPLS1OM0xwMgSp3y4+pIqLLKaRCDzB2Gg5zLm81bv17qrnqPgHePwZQEFPHua58b7WrAevu8IcBVUjbu6ETZJwGDsYydpa7Du3MOsDVM2+FNXOsysNjrCh2NK+SRqDvX6hzsKsOTM2v3ythRlUqm7ii8cJ+kQsHBUizj+dUIsy5h0M4YTykKwc8sn+nI+esbHeln4mTZvcvZ2yCZZWftLWJLpbk5aO2g4uZu4pTYYj2VvLzoUIBTBg+jRA+f2tCybCuk3Y0BNJDJHnM6183Rco8gWlhVZAcfDcXyIKsGQR8l4pyBgOWEFarti5HhvxBLl1O10vCCHP5CpJmbe4+pAkIoSogQvFP1VRD0H0TcJxpZMFI/0FhX0KLgs10rd8hpN6z3pkVbjxPgFVhQ/TVZtN8Ys=
+  on:
+    tags: true
+    repo: batata-frita/element-rect-observer
