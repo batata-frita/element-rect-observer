@@ -6,7 +6,7 @@ export default (domElement, callback) => {
     return () => {}
   }
 
-  if (global.ResizeObserver != null) {
+  if (global.ResizeObserver == null) {
     let recordedSize = {}
 
     const onChange = () => {
