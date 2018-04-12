@@ -3,5 +3,5 @@
  * see: http://sagui.js.org/
  */
 module.exports = {
-  pages: ['example', 'newExample'],
+  pages: ['example'],
 }

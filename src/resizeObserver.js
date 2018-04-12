@@ -1,12 +1,12 @@
 export default (domElement, callback) => {
   if (
-    typeof global.MutationObserver !== 'function' &&
-    typeof global.ResizeObserver !== 'function'
+    global.MutationObserver == null &&
+    global.ResizeObserver == null
   ) {
     return () => {}
   }
 
-  if (typeof global.ResizeObserver !== 'function') {
+  if (global.ResizeObserver != null) {
     let recordedSize = {}
 
     const onChange = () => {
@@ -29,7 +29,7 @@ export default (domElement, callback) => {
 
     const observer = new global.MutationObserver(onChange)
 
-    window.addEventListener('resize', onChange)
+    global.addEventListener('resize', onChange)
 
     observer.observe(domElement, {
       attributes: true,
@@ -42,7 +42,7 @@ export default (domElement, callback) => {
 
     return () => {
       observer.disconnect()
-      window.removeEventListener('resize', onChange)
+      global.removeEventListener('resize', onChange)
     }
   }
 
