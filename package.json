@@ -1,6 +1,6 @@
 {
   "name": "element-rect-observer",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "dist/resizeObserver.js",
   "scripts": {
@@ -30,5 +30,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "sagui": "^11.4.3"
+  },
+  "dependencies": {
+    "raf-debounce": "^0.1.1"
   }
 }
