@@ -1,6 +1,6 @@
 import rafDebounce from 'raf-debounce'
 
-export default (domElement, callback) => {
+export default (domElement, callback, debounce = false) => {
   if (global.MutationObserver == null && global.ResizeObserver == null) {
     return () => {}
   }
@@ -24,7 +24,7 @@ export default (domElement, callback) => {
         boundingClientRect.y !== recordedSize.y
       ) {
         recordedSize = boundingClientRect
-        debouncedCallback(recordedSize)
+        debounce ? debouncedCallback(recordedSize) : callback(recordedSize)
       }
     }
 
@@ -39,7 +39,9 @@ export default (domElement, callback) => {
       subtree: true,
     })
 
-    debouncedCallback(domElement.getBoundingClientRect())
+    debounce
+      ? debouncedCallback(domElement.getBoundingClientRect())
+      : callback(domElement.getBoundingClientRect())
 
     return () => {
       observer.disconnect()
@@ -47,8 +49,11 @@ export default (domElement, callback) => {
     }
   }
 
-  const observer = new global.ResizeObserver(() =>
-    debouncedCallback(domElement.getBoundingClientRect())
+  const observer = new global.ResizeObserver(
+    () =>
+      debounce
+        ? debouncedCallback(domElement.getBoundingClientRect())
+        : callback(domElement.getBoundingClientRect())
   )
 
   observer.observe(domElement)
