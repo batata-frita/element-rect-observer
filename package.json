@@ -5,6 +5,7 @@
   "main": "dist/resizeObserver.js",
   "scripts": {
     "dist": "babel src/ -d dist/ --only resizeObserver.js",
+    "prepublishOnly": "yarn dist",
     "format": "sagui format",
     "start": "sagui develop --port 3000",
     "test": "jest"
